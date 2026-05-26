@@ -310,7 +310,8 @@ export const SOCIAL_LINKS: NavLink[] = [
 
 export const CONTACT: FooterContact = {
   email: 'sales@lumocast.in',
-  phone: '+919152398498',
+  phone: '+919702798498',
+  // phone: '+919152398498',
   address:
     '1st Floor, Bldg No. A4, Babosa Industrial Park, Saravali Village, Nashik-Mumbai Highway Bhiwandi, Maharashtra - 421302',
   copyright: '© 2025 Lumocast Digital Signage Pvt. Ltd.'
