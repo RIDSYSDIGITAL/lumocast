@@ -1,4 +1,4 @@
-<section class="page-intro section-shell">
+<!-- <section class="page-intro section-shell">
   <div appReveal="0">
     <span class="section-label">Contact</span>
     <h1>Get in Touch</h1>
@@ -7,13 +7,13 @@
       THE FORM AND WE’LL RESPOND AS SOON AS POSSIBLE.
     </p>
   </div>
-</section>
+</section> -->
 
-<section class="contact-distributors section-shell">
+<!-- <section class="contact-distributors section-shell">
   <div class="contact-distributors__heading" appReveal="0">
-    <!-- <div class="contact-distributors__heading-main">
+    <div class="contact-distributors__heading-main">
       <h2>International Distributors</h2>
-    </div> -->
+    </div>
 
     <p class="contact-distributors__quote">
       "We are thrilled to welcome you as a distributor! Your commitment and
@@ -33,7 +33,7 @@
       <h3>{{ distributor.name }}</h3>
     </article>
   </div>
-</section>
+</section> -->
 
 <section class="contact-page section-shell">
   <div class="contact-page__form-wrap" appReveal="0">
@@ -136,7 +136,8 @@
     <div class="contact-card">
       <span class="section-label">Contact</span>
       <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
-      <a [href]="'tel:' + contact.phone">Tel: {{ contact.phone }}</a>
+      <a [href]="'tel:' + contact.phone">Phone: {{ contact.phone }}</a>
+      <a [href]="'tel:' + contact.phone_1">Mobile: {{ contact.phone_1 }}</a>
       <p>{{ contact.address }}</p>
     </div>
 

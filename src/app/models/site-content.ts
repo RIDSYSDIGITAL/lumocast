@@ -28,6 +28,7 @@ export interface BlogPost {
 export interface FooterContact {
   email: string;
   phone: string;
+  phone_1: string;
   address: string;
   copyright: string;
 }

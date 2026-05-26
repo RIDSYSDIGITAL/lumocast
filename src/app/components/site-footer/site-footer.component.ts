@@ -16,6 +16,7 @@ export class SiteFooterComponent {
   @Input() contact: FooterContact = {
     email: '',
     phone: '',
+    phone_1: '',
     address: '',
     copyright: ''
   };
