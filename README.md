@@ -35,7 +35,7 @@ Run:
 npm run build
 ```
 
-Build output is written to `dist/cansignage/`.
+Build output is written to `dist/lumocast/`.
 
 ## Watch mode
 
