@@ -1,0 +1,154 @@
+<section class="page-intro section-shell">
+  <div appReveal="0">
+    <span class="section-label">Contact</span>
+    <h1>Get in Touch</h1>
+    <p>
+      REACH OUT, SHARE A QUESTION OR PROVIDE FEEDBACK ON OUR PRODUCTS. FILL OUT
+      THE FORM AND WE’LL RESPOND AS SOON AS POSSIBLE.
+    </p>
+  </div>
+</section>
+
+<section class="contact-distributors section-shell">
+  <div class="contact-distributors__heading" appReveal="0">
+    <div class="contact-distributors__heading-main">
+      <!-- <h2>International Distributors</h2> -->
+    </div>
+
+    <p class="contact-distributors__quote">
+      "We are thrilled to welcome you as a distributor! Your commitment and
+      dedication to our products are invaluable, and we're excited to achieve
+      even greater success together"
+    </p>
+  </div>
+
+  <div class="contact-distributors__grid">
+    <article
+      *ngFor="let distributor of distributors; let i = index"
+      class="distributor-card visual-motion"
+      appInteractiveMotion="0.65"
+      [appReveal]="80 + i * 70"
+    >
+      <img [src]="distributor.image" [alt]="distributor.name" />
+      <h3>{{ distributor.name }}</h3>
+    </article>
+  </div>
+</section>
+
+<section class="contact-page section-shell">
+  <div class="contact-page__form-wrap" appReveal="0">
+    <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="submit()" novalidate>
+      <div class="contact-form__grid">
+        <div class="form-field">
+          <label for="firstName">First name *</label>
+          <input id="firstName" type="text" formControlName="firstName" />
+          <p class="form-error" *ngIf="name.touched && name.hasError('required')">First name is required.</p>
+          <p class="form-error" *ngIf="name.touched && name.hasError('minlength')">First name must be at least 2 characters.</p>
+        </div>
+
+        <div class="form-field">
+          <label for="lastName">Last name *</label>
+          <input id="lastName" type="text" formControlName="lastName" />
+          <p class="form-error" *ngIf="lastName.touched && lastName.hasError('required')">Last name is required.</p>
+          <p class="form-error" *ngIf="lastName.touched && lastName.hasError('minlength')">Last name must be at least 2 characters.</p>
+        </div>
+      </div>
+
+      <div class="contact-form__grid">
+        <div class="form-field">
+          <label for="email">Email *</label>
+          <input id="email" type="email" formControlName="email" />
+          <p class="form-error" *ngIf="email.touched && email.hasError('required')">Email is required.</p>
+          <p class="form-error" *ngIf="email.touched && email.hasError('email')">Enter a valid email address.</p>
+        </div>
+
+        <div class="form-field">
+          <label for="companyName">Company Name</label>
+          <input id="companyName" type="text" formControlName="companyName" />
+        </div>
+      </div>
+
+      <div class="contact-form__grid">
+        <div class="form-field">
+          <label for="designation">Designation</label>
+          <input id="designation" type="text" formControlName="designation" />
+        </div>
+
+        <div class="form-field">
+          <label for="phone">Phone *</label>
+          <input
+            id="phone"
+            type="tel"
+            formControlName="phone"
+            inputmode="numeric"
+            maxlength="15"
+            (input)="onPhoneInput($event)"
+          />
+          <p class="form-error" *ngIf="phone.touched && phone.hasError('required')">Phone number is required.</p>
+          <p class="form-error" *ngIf="phone.touched && (phone.hasError('pattern') || phone.hasError('maxlength'))">
+            Enter numbers only, up to 15 digits.
+          </p>
+        </div>
+      </div>
+
+      <div class="contact-form__grid">
+        <div class="form-field">
+          <label for="inquiryType">Type of inquiry</label>
+          <select id="inquiryType" formControlName="inquiryType">
+            <option value="" disabled>Select inquiry type</option>
+            <option *ngFor="let option of inquiryTypes" [value]="option">{{ option }}</option>
+          </select>
+          <p class="form-error" *ngIf="inquiryType.touched && inquiryType.hasError('required')">Type of inquiry is required.</p>
+        </div>
+
+        <div class="form-field">
+          <label for="canModel">Select Lumocast Model *</label>
+          <select id="canModel" formControlName="canModel">
+            <option value="" disabled>Select Lumocast Model</option>
+            <option *ngFor="let model of canModels" [value]="model">{{ model }}</option>
+          </select>
+          <p class="form-error" *ngIf="canModel.touched && canModel.hasError('required')">Model selection is required.</p>
+        </div>
+      </div>
+
+      <div class="form-field">
+        <label for="message">Message</label>
+        <textarea
+          id="message"
+          rows="7"
+          formControlName="message"
+        ></textarea>
+        <p class="form-error" *ngIf="message.touched && message.hasError('required')">Message is required.</p>
+        <p class="form-error" *ngIf="message.touched && message.hasError('minlength')">Message must be at least 10 characters.</p>
+      </div>
+
+      <button type="submit">Send Message</button>
+      <p class="form-success" *ngIf="mailClientOpened; else formHint">
+        Your email app should open with your inquiry formatted and ready to send.
+      </p>
+      <ng-template #formHint>
+        <p class="form-success">Fill out the form and we’ll prepare your email.</p>
+      </ng-template>
+    </form>
+  </div>
+
+  <aside class="contact-page__details" appReveal="90">
+    <div class="contact-card">
+      <span class="section-label">Contact</span>
+      <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
+      <a [href]="'tel:' + contact.phone">Tel: {{ contact.phone }}</a>
+      <p>{{ contact.address }}</p>
+    </div>
+
+    <div class="contact-card contact-card--soft">
+      <span class="section-label">Distributor Support</span>
+      <h3>Premium display partnerships start here.</h3>
+      <p>
+        Connect with LUMOCAST Signage for product requests, dealership opportunities,
+        installation planning, and branded digital display rollouts.
+      </p>
+    </div>
+  </aside>
+</section>
+
+<app-newsletter-section></app-newsletter-section>

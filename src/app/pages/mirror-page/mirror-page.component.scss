@@ -1,0 +1,35 @@
+:host {
+  display: block;
+}
+
+.mirror-loading {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  background: #fff;
+  color: #111;
+}
+
+.mirror-loading p {
+  margin: 0;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+}
+
+.mirror-loading--error {
+  color: #b42318;
+}
+
+.mirror-shell {
+  min-height: 100vh;
+  background: #fff;
+}
+
+.mirror-shell__frame {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  border: 0;
+  background: #fff;
+}

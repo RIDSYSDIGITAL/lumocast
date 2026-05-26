@@ -1,0 +1,222 @@
+.site-header {
+  position: sticky;
+  height: 8pc;
+  top: 0;
+  z-index: 20;
+  background: rgba(0, 0, 0, 0.92);
+  border-bottom: 1px solid transparent;
+  transition:
+    transform 260ms ease,
+    background-color 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.site-header--hidden {
+  transform: translateY(calc(-100% - 2px));
+}
+
+.site-header--scrolled {
+  background: rgba(0, 0, 0, 0.97);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.24);
+}
+
+.site-header__inner {
+  width: var(--section-width);
+  margin: 0 auto;
+  padding: 45px 0;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.site-header__brand {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex: 0 0 auto;
+}
+
+.site-header__brand img {
+  max-width: 340px;
+  width: auto;
+  height: 56px;
+  object-fit: contain;
+}
+
+.site-header__toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.site-header__toggle span {
+  display: block;
+  width: 18px;
+  height: 1px;
+  margin: 0 auto 5px;
+  background: #fff;
+  transition: transform 220ms ease, opacity 220ms ease;
+}
+
+.site-header__toggle span:last-child {
+  margin-bottom: 0;
+}
+
+.site-header--menu-open .site-header__toggle span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.site-header--menu-open .site-header__toggle span:nth-child(2) {
+  opacity: 0;
+}
+
+.site-header--menu-open .site-header__toggle span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.site-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+  margin-left: auto;
+}
+
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.site-header__nav a {
+  color: rgba(255, 255, 255, 0.94);
+  text-decoration: none;
+  font-size: 0.98rem;
+  position: relative;
+  letter-spacing: 0.01em;
+  transition: color 220ms ease;
+  padding-bottom: 6px;
+}
+
+.site-header__nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 220ms ease;
+}
+
+.site-header__nav a:hover,
+.site-header__nav a:focus-visible,
+.site-header__nav a.is-active {
+  color: #fff;
+}
+
+.site-header__nav a:hover::after,
+.site-header__nav a:focus-visible::after,
+.site-header__nav a.is-active::after {
+  transform: scaleX(1);
+}
+
+.site-header__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  background: #fff;
+  color: #0b0b0b;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+  transition:
+    transform 220ms ease,
+    background-color 220ms ease;
+}
+
+.site-header__cta svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.6;
+}
+
+.site-header__cta:hover,
+.site-header__cta:focus-visible {
+  background: rgba(255, 255, 255, 0.92);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+  .site-header__inner {
+    padding: 22px 0;
+  }
+
+  .site-header__toggle {
+    display: block;
+  }
+
+  .site-header__actions {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    display: grid;
+    gap: 18px;
+    margin-left: 0;
+    padding: 22px 28px 28px;
+    background: rgba(0, 0, 0, 0.98);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 220ms ease, transform 220ms ease;
+  }
+
+  .site-header--menu-open .site-header__actions {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .site-header__nav {
+    display: grid;
+    gap: 14px;
+  }
+
+  .site-header__nav a {
+    width: fit-content;
+    font-size: 1rem;
+  }
+
+  .site-header__cta {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header__brand img {
+    max-width: 250px;
+    height: 42px;
+  }
+
+  .site-header__actions {
+    padding-inline: 14px;
+  }
+}

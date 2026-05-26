@@ -1,0 +1,53 @@
+<header
+  class="site-header"
+  [class.site-header--hidden]="hidden"
+  [class.site-header--scrolled]="scrolled"
+  [class.site-header--menu-open]="menuOpen"
+>
+  <div class="site-header__inner">
+    <a class="site-header__brand" routerLink="/" aria-label="Lumocast home" appReveal="0">
+      <img [src]="logoSrc" alt="Lumocast Digital Signage Private Limited" />
+    </a>
+
+    <button
+      class="site-header__toggle"
+      type="button"
+      (click)="toggleMenu()"
+      [attr.aria-expanded]="menuOpen"
+      aria-label="Toggle navigation menu"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="site-header__actions">
+      <nav class="site-header__nav" aria-label="Main navigation" appReveal="80">
+        <a
+          *ngFor="let link of links"
+          [routerLink]="link.route"
+          [fragment]="link.fragment"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: link.route === '/' }"
+          (click)="closeMenu()"
+        >
+          {{ link.label }}
+        </a>
+      </nav>
+
+      <a
+        class="site-header__cta"
+        [href]="appLink"
+        target="_blank"
+        rel="noreferrer noopener"
+        appReveal="140"
+        (click)="closeMenu()"
+      >
+        <span>IQ WORLD</span>
+        <!-- <svg viewBox="0 0 18 18" aria-hidden="true">
+          <path d="M5 13 13 5M6.5 5H13v6.5" />
+        </svg> -->
+      </a>
+    </div>
+  </div>
+</header>

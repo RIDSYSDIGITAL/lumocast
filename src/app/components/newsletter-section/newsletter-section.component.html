@@ -1,0 +1,29 @@
+<section class="newsletter section-shell">
+  <div class="newsletter__panel" appReveal="0">
+    <div>
+      <h2>Be the First to Receive the Latest News From Lumocast.</h2>
+    </div>
+
+    <form class="newsletter__form" #newsletterForm="ngForm" (ngSubmit)="submit(newsletterForm)" novalidate>
+      <label>
+        <span>Email*</span>
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="email"
+          #emailModel="ngModel"
+          placeholder="name@example.com"
+          required
+          email
+        />
+        <small class="newsletter__error" *ngIf="submitted && emailModel.hasError('required')">
+          Email is required.
+        </small>
+        <small class="newsletter__error" *ngIf="submitted && emailModel.hasError('email')">
+          Enter a valid email address.
+        </small>
+      </label>
+      <button type="submit">Subscribe</button>
+    </form>
+  </div>
+</section>

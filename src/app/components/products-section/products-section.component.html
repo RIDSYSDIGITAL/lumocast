@@ -1,0 +1,43 @@
+<section id="products" class="products product">
+  <div class=" section-shell">
+
+
+    <div class="products__heading" appReveal="0">
+      <span class="section-label">WHICH LUMOCAST IS RIGHT FOR YOU?</span>
+      <h2> Different Styles, For Different Spaces</h2>
+    </div>
+
+    <div class="products__carousel-wrapper">
+      <div #productsViewport class="products__viewport" (scroll)="updateScrollState()">
+        <article *ngFor="let product of products; let i = index" class="product-card"
+          [style.--card-tilt]="(i % 2 === 0 ? -1.6 : 1.6) + 'deg'" [appReveal]="80 + (i % 6) * 60">
+          <div class="product-card__glow" aria-hidden="true"></div>
+          <div class="product-card__content">
+            <h3>{{ product.name }}</h3>
+            <p>{{ product.tagline }}</p>
+          </div>
+          <div class="product-card__image-wrap visual-motion" appInteractiveMotion="0.7">
+            <img [src]="product.image" [alt]="product.name" />
+          </div>
+        </article>
+      </div>
+
+      <div class="carousel-controls" *ngIf="products.length > cardsPerView">
+        <button class="carousel-btn carousel-btn--prev" type="button" (click)="scrollProducts(-1)"
+          [disabled]="!canScrollPrev" aria-label="Previous products">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <button class="carousel-btn carousel-btn--next" type="button" (click)="scrollProducts(1)"
+          [disabled]="!canScrollNext" aria-label="Next products">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,63 @@
+<section id="blog" class="blog section-shell" [class.blog--page]="pageMode">
+  <ng-container *ngIf="!pageMode; else blogPageMode">
+    <div class="blog__intro" appReveal="0">
+      <h2>{{ pageTitle }}</h2>
+    </div>
+
+    <div class="blog__grid">
+      <a
+        *ngFor="let post of homepagePosts; let i = index; trackBy: trackByPost"
+        class="blog-card visual-motion"
+        appInteractiveMotion="0.6"
+        target="_blank"
+        rel="noreferrer noopener"
+        [appReveal]="80 + i * 70"
+      >
+        <img [src]="post.image" [alt]="post.title" />
+        <div class="blog-card__overlay">
+          <h3>{{ post.title }}</h3>
+        </div>
+      </a>
+    </div>
+  </ng-container>
+
+  <ng-template #blogPageMode>
+    <div class="blog__page-intro" appReveal="0">
+      <span class="section-label">LUMOCAST BLOG</span>
+      <h2>{{ pageTitle }}</h2>
+      <p>{{ pageCopy }}</p>
+    </div>
+
+    <div class="blog__page-grid">
+      <article
+        *ngFor="let post of posts; let i = index; trackBy: trackByPost"
+        class="blog-page-card"
+        [appReveal]="80 + i * 70"
+      >
+        <a
+          class="blog-page-card__media visual-motion"
+          appInteractiveMotion="0.55"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          <img [src]="post.image" [alt]="post.title" />
+          <span class="blog-page-card__number">{{ formatIndex(i + 1) }}</span>
+        </a>
+
+        <div class="blog-page-card__body">
+          <!-- <span class="blog-page-card__date">{{ post.publishedOn }}</span> -->
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.excerpt }}</p>
+          <!-- <a
+            class="blog-page-card__link"
+            [href]="post.href"
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            Read article
+          </a> -->
+        </div>
+      </article>
+    </div>
+  </ng-template>
+</section>

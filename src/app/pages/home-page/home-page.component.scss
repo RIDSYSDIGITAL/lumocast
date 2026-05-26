@@ -1,0 +1,62 @@
+:host {
+  display: block;
+}
+
+.home-page {
+  position: relative;
+  background:
+    radial-gradient(circle at top, rgba(236, 238, 233, 0.72), transparent 20%),
+    #fff;
+}
+
+.home-page__band {
+  position: relative;
+  isolation: isolate;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.home-page__band::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.home-page__band--about::before {
+  display: none;
+}
+
+.home-page__band--about {
+  border-top: 0;
+  background: #000;
+  overflow: hidden;
+}
+
+.home-page__band--display::before {
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.72), transparent 18%),
+    linear-gradient(180deg, rgba(247, 247, 244, 0.94), rgba(255, 255, 255, 0.2));
+}
+
+.home-page__band--control::before {
+  background:
+    radial-gradient(circle at 85% 24%, rgba(219, 227, 255, 0.46), transparent 20%),
+    linear-gradient(180deg, rgba(249, 249, 247, 0.85), rgba(255, 255, 255, 0.28));
+}
+
+.home-page__band--products::before {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.1), transparent 22%),
+    linear-gradient(180deg, rgba(248, 248, 245, 0.9), rgba(255, 255, 255, 0.18));
+}
+
+.home-page__band--blog::before {
+  background: linear-gradient(180deg, rgba(248, 248, 246, 0.9), rgba(255, 255, 255, 0.18));
+}
+
+@media (max-width: 720px) {
+  .home-page__band {
+    border-top-color: rgba(0, 0, 0, 0.06);
+  }
+}

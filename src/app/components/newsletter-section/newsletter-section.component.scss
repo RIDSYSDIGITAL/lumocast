@@ -1,0 +1,72 @@
+.newsletter {
+  padding-top: 24px;
+}
+
+.newsletter__panel {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 28px;
+  align-items: center;
+  padding: 34px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.newsletter__panel h2 {
+  margin: 0;
+  font-size: clamp(2.75rem, 3vw, 2.7rem);
+  // max-width: 18ch;
+}
+
+.newsletter__form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: flex-end;
+}
+
+.newsletter__form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.newsletter__form input {
+  min-width: 280px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: #000;
+}
+
+.newsletter__form input.ng-invalid.ng-touched,
+.newsletter__form input.ng-invalid.ng-dirty {
+  border-color: #cc3d3d;
+}
+
+.newsletter__form button {
+  padding: 14px 24px;
+  border: 0;
+  border-radius: 12px;
+  background: #0b0b0b;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.newsletter__error {
+  color: #cc3d3d;
+}
+
+@media (max-width: 900px) {
+  .newsletter__panel {
+    grid-template-columns: 1fr;
+  }
+}

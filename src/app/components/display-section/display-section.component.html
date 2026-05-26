@@ -1,0 +1,57 @@
+<section id="display" class="display section-shell">
+  <div class="display__intro" appReveal="0">
+    <h2
+      class="display__headline"
+      aria-label="Fully Autonomous, Uncompromisingly Sustainable"
+    >
+      <span
+        *ngFor="let word of headingWords; let i = index"
+        class="display__headline-word"
+        [class.display__headline-word--right]="i % 2 === 1"
+        [style.--word-index]="i"
+      >
+        {{ word }}
+      </span>
+    </h2>
+  </div>
+
+  <div class="display__panel">
+    <div class="display__copy" appReveal="40">
+      <h3 class="display__copy-heading">Resolution Redefined</h3>
+
+      <div class="display__stats">
+        <div
+          *ngFor="let stat of stats; let i = index"
+          class="display__stat"
+          [appReveal]="100 + i * 70"
+        >
+          <strong>{{ getAnimatedValue(i, stat) }}</strong>
+          <span class="display__stat-label">{{ stat.label }}</span>
+        </div>
+      </div>
+
+      <div class="display__body">
+        <p
+          *ngFor="let paragraph of bodyParagraphs; let i = index"
+          class="display__body-panel"
+          [class.display__body-panel--right]="i % 2 === 1"
+          [style.--panel-index]="i"
+        >
+          {{ paragraph }}
+        </p>
+      </div>
+
+      <a class="display__button" routerLink="/technology">
+        Read More
+      </a>
+    </div>
+
+    <div class="display__media visual-motion" appReveal="120" appInteractiveMotion="1">
+      <div class="display__halo" aria-hidden="true"></div>
+      <div class="display__screen">
+        <div class="display__screen-glass" aria-hidden="true"></div>
+        <img [src]="image" alt="LUMOCAST Signage Display" />
+      </div>
+    </div>
+  </div>
+</section>

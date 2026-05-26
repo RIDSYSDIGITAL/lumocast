@@ -1,0 +1,7 @@
+<section class="mirror-loading" *ngIf="!errorMessage">
+  <p>Loading LUMOCAST Signage page...</p>
+</section>
+
+<section class="mirror-loading mirror-loading--error" *ngIf="errorMessage">
+  <p>{{ errorMessage }}</p>
+</section>

@@ -1,0 +1,34 @@
+<div class="home-page">
+  <app-hero-section
+    [backgroundImage]="heroBackground"
+    [showcaseImage]="heroShowcase"
+  ></app-hero-section>
+
+  <section class="home-page__band home-page__band--about" aria-label="About LUMOCAST Signage">
+    <app-about-section [image]="aboutImage"></app-about-section>
+  </section>
+
+  <section class="home-page__band home-page__band--display" aria-label="LUMOCAST Signage Display">
+    <app-display-section
+      [image]="displayImage"
+      [stats]="displayStats"
+    ></app-display-section>
+  </section>
+
+  <section class="home-page__band home-page__band--control" aria-label="IQ World control center">
+    <app-control-center-section
+      [image]="iqWorldImage"
+      [appLink]="iqWorldLink"
+    ></app-control-center-section>
+  </section>
+
+  <section class="home-page__band home-page__band--products" aria-label="LUMOCAST Signage products">
+    <app-products-section [products]="products"></app-products-section>
+  </section>
+
+  <section class="home-page__band home-page__band--blog" aria-label="LUMOCAST Signage blog">
+    <app-blog-section [posts]="blogPosts"></app-blog-section>
+  </section>
+
+  <app-newsletter-section></app-newsletter-section>
+</div>

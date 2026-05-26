@@ -1,0 +1,50 @@
+<section class="legal-page section-shell">
+  <div class="legal-page__hero reveal" appReveal="0">
+    <div class="legal-page__hero-copy">
+      <span class="section-label">{{ content.label }}</span>
+      <h1>{{ content.title }}</h1>
+      <p>{{ content.intro }}</p>
+    </div>
+
+    <div class="legal-page__hero-panel visual-motion">
+      <div class="legal-page__facts">
+        <article class="legal-page__fact" *ngFor="let fact of content.facts">
+          <span>{{ fact.label }}</span>
+          <strong>{{ fact.value }}</strong>
+        </article>
+      </div>
+
+      <div class="legal-page__note">
+        <span>Important</span>
+        <p>{{ content.note }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="legal-page__body">
+    <aside class="legal-page__summary reveal" appReveal="80">
+      <span class="legal-page__summary-label">Quick View</span>
+      <h2>Key Points</h2>
+
+      <ul class="legal-page__highlights">
+        <li *ngFor="let highlight of content.highlights">{{ highlight }}</li>
+      </ul>
+    </aside>
+
+    <div class="legal-page__content">
+      <article
+        class="legal-page__section reveal"
+        appReveal="120"
+        *ngFor="let section of content.sections"
+      >
+        <h2>{{ section.title }}</h2>
+
+        <p *ngFor="let paragraph of section.paragraphs">{{ paragraph }}</p>
+
+        <ul *ngIf="section.bullets?.length" class="legal-page__list">
+          <li *ngFor="let bullet of section.bullets">{{ bullet }}</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>

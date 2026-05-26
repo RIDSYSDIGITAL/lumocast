@@ -1,1 +1,448 @@
-/* You can add global styles to this file, and also import other style files */
+
+@font-face {
+  font-display: swap;
+  font-family: 'sans-serif';
+  font-style: normal;
+  font-weight: 400;
+  src: url('https://static.parastorage.com/fonts/v2/26656ec7-c27d-4bdc-a9f4-6b498bbfad69/v1/madefor-display.woff2')
+    format('woff2');
+}
+
+:root {
+  color-scheme: light;
+  --page-bg: #ffffff;
+  --page-fg: #000000;
+  --surface: #fbfbf9;
+  --surface-strong: #f2f2ef;
+  --surface-dark: #0b0b0b;
+  --line: rgba(0, 0, 0, 0.12);
+  --line-strong: rgba(0, 0, 0, 0.24);
+  --muted: #0b0b0b;
+  --accent: #5e625f;
+  --accent-soft: #eceee9;
+  --section-width: min(2100px, calc(100% - 56px));
+  --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.08);
+  --shadow-float: 0 30px 72px rgba(0, 0, 0, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--page-bg);
+  color: var(--page-fg);
+  font-family: 'madefor-display', 'din-next-w01-light', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+.section-label,
+.site-header__title {
+  font-family: 'space grotesk', sans-serif;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a,
+button,
+input {
+  font: inherit;
+}
+
+.section-shell {
+  width: var(--section-width);
+  margin: 0 auto;
+  padding: 88px 0;
+}
+
+.section-label {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 2.3rem;
+  // letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.page-intro {
+  padding-top: 132px;
+  padding-bottom: 40px;
+}
+
+.page-intro h1 {
+  margin: 0 0 16px;
+  max-width: 12ch;
+  font-size: clamp(2.4rem, 4.6vw, 4.8rem);
+  line-height: 1.02;
+}
+
+.page-intro p {
+  max-width: 640px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.04rem;
+  line-height: 1.8;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  filter: blur(6px);
+  transition:
+    opacity 680ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    transform 680ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms),
+    filter 680ms cubic-bezier(0.22, 1, 0.36, 1) var(--reveal-delay, 0ms);
+  will-change: opacity, transform, filter;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+}
+
+.reveal h2 {
+  opacity: 0.001;
+  transform: translateY(0.42em);
+  filter: blur(10px);
+  letter-spacing: -0.08em;
+  transition:
+    opacity 900ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--reveal-delay, 0ms) + 60ms),
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--reveal-delay, 0ms) + 60ms),
+    filter 900ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--reveal-delay, 0ms) + 60ms),
+    letter-spacing 900ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--reveal-delay, 0ms) + 60ms);
+  will-change: opacity, transform, filter, letter-spacing;
+}
+
+.reveal.is-visible h2 {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+  letter-spacing: inherit;
+}
+
+.reveal h1 {
+  opacity: 0.001;
+  transform: translateY(0.38em);
+  filter: blur(12px);
+  letter-spacing: -0.08em;
+  transition:
+    opacity 900ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--reveal-delay, 0ms) + 60ms),
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--reveal-delay, 0ms) + 60ms),
+    filter 900ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--reveal-delay, 0ms) + 60ms),
+    letter-spacing 900ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--reveal-delay, 0ms) + 60ms);
+  will-change: opacity, transform, filter, letter-spacing;
+}
+
+.reveal.is-visible h1 {
+  opacity: 1;
+  transform: none;
+  filter: blur(0);
+  letter-spacing: inherit;
+}
+
+.reveal img {
+  opacity: 0.001;
+  filter: blur(12px) saturate(0.8);
+  transition:
+    opacity 900ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--reveal-delay, 0ms) + 80ms),
+    filter 1100ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--reveal-delay, 0ms) + 80ms);
+  will-change: opacity, filter;
+}
+
+.reveal.is-visible img {
+  opacity: 1;
+  filter: none;
+}
+
+.visual-motion {
+  position: relative;
+  isolation: isolate;
+}
+
+.motion-reactive {
+  --motion-progress: 0;
+  --motion-tilt-x: 0deg;
+  --motion-tilt-y: 0deg;
+  --motion-shift-x: 0px;
+  --motion-shift-y: 0px;
+}
+
+.motion-reactive img {
+  transform:
+    translate3d(calc(var(--motion-shift-x, 0px) * 0.14), calc(var(--motion-shift-y, 0px) * 0.16), 0)
+    rotateX(calc(var(--motion-tilt-x, 0deg) * 0.55))
+    rotateY(calc(var(--motion-tilt-y, 0deg) * 0.72));
+  transform-origin: center center;
+  transition: transform 320ms ease;
+  will-change: transform;
+}
+
+.visual-motion::before,
+.visual-motion::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+}
+
+.visual-motion::before {
+  inset: 10% 12%;
+  z-index: 1;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.22), transparent 66%);
+  opacity: 0;
+  transform: translate3d(var(--motion-shift-x, 0px), var(--motion-shift-y, 0px), 0);
+  transition: opacity 900ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--reveal-delay, 0ms) + 120ms);
+}
+
+.visual-motion::after {
+  top: -22%;
+  bottom: -22%;
+  left: -42%;
+  z-index: 2;
+  width: 32%;
+  opacity: 0;
+  transform: skewX(-18deg) translateX(0);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.42), transparent);
+}
+
+.reveal.visual-motion.is-visible::before,
+.reveal.is-visible .visual-motion::before {
+  opacity: 1;
+}
+
+.reveal.visual-motion.is-visible::after,
+.reveal.is-visible .visual-motion::after {
+  opacity: 1;
+  animation: visual-sheen 1200ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--reveal-delay, 0ms) + 120ms) 1 both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+
+  .reveal h2 {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    letter-spacing: inherit;
+    transition: none;
+  }
+
+  .reveal h1 {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    letter-spacing: inherit;
+    transition: none;
+  }
+
+  .reveal img {
+    opacity: 1;
+    filter: none;
+    transition: none;
+  }
+
+  .motion-reactive img {
+    transform: none;
+    transition: none;
+  }
+
+  .visual-motion::before,
+  .visual-motion::after {
+    animation: none;
+    opacity: 0;
+    transform: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --section-width: min(1220px, calc(100% - 28px));
+  }
+
+  .section-shell {
+    padding: 68px 0;
+  }
+
+  app-technology-page .technology-feature__copy,
+  app-technology-page .technology-iq__intro,
+  app-technology-page .technology-iq__details,
+  app-technology-page .technology-iq__capability {
+    padding: 26px 22px;
+    border-radius: 24px;
+  }
+
+  app-technology-page .technology-feature__media,
+  app-technology-page .technology-iq__dashboard,
+  app-technology-page .technology-iq__mobile {
+    border-radius: 24px;
+  }
+}
+
+.hero__actions a {
+  padding: 13px 22px;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 220ms ease;
+}
+
+.hero__actions a:hover,
+.hero__actions a:focus-visible {
+  transform: translateY(-2px);
+}
+
+.hero__ghost {
+  background: transparent !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.hero__scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+  padding-bottom: 22px;
+  color: #fff;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.hero__scroll::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.78);
+  transform: translateX(-50%);
+}
+
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes visual-sheen {
+  from {
+    transform: skewX(-18deg) translateX(0);
+  }
+
+  to {
+    transform: skewX(-18deg) translateX(420%);
+  }
+}
+
+app-technology-page .technology-feature__copy,
+app-technology-page .technology-iq__intro,
+app-technology-page .technology-iq__details,
+app-technology-page .technology-iq__capability {
+  padding: 38px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 22px 44px rgba(0, 0, 0, 0.18);
+}
+
+app-technology-page .technology-feature__copy h2,
+app-technology-page .technology-iq__intro h2 {
+  font-size: clamp(2rem, 3.8vw, 3.65rem);
+}
+
+app-technology-page .technology-feature__copy p,
+app-technology-page .technology-iq__intro p,
+app-technology-page .technology-iq__summary,
+app-technology-page .technology-iq__capability p {
+  margin: 18px 0 0;
+  color: rgba(255, 255, 255, 0.76);
+  line-height: 1.8;
+}
+
+app-technology-page .technology-feature__media,
+app-technology-page .technology-iq__dashboard,
+app-technology-page .technology-iq__mobile {
+  overflow: hidden;
+  border-radius: 32px;
+  background: #121212;
+  box-shadow: 0 28px 54px rgba(0, 0, 0, 0.24);
+}
+
+app-technology-page .technology-iq__cta {
+  display: inline-flex;
+  margin-top: 26px;
+  padding: 13px 22px;
+  border-radius: 999px;
+  background: #fff;
+  color: #090909;
+  text-decoration: none;
+  transition: transform 220ms ease;
+}
+
+app-technology-page .technology-iq__cta:hover,
+app-technology-page .technology-iq__cta:focus-visible {
+  transform: translateY(-2px);
+}
+
+app-technology-page .technology-iq__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+app-technology-page .technology-iq__chips span,
+app-technology-page .technology-iq__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.82);
+}
+
+app-technology-page .technology-iq__chips span {
+  padding: 10px 14px;
+  font-size: 0.92rem;
+}
+
+app-technology-page .technology-iq__eyebrow {
+  padding: 9px 14px;
+  margin-bottom: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+}

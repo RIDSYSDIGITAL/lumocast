@@ -1,0 +1,55 @@
+<footer id="contact" class="site-footer">
+  <div class="site-footer__inner">
+    <div class="site-footer__brand" appReveal="0">
+      <img [src]="logoSrc" alt="Lumocast Digital Signage Private Limited" />
+      <p>{{ contact.copyright }}</p>
+    </div>
+
+    <div class="site-footer__column" appReveal="40">
+      <span class="site-footer__label">Navigation</span>
+      <nav class="site-footer__links">
+        <a *ngFor="let link of navLinks" [routerLink]="link.route" [fragment]="link.fragment">
+          {{ link.label }}
+        </a>
+      </nav>
+    </div>
+
+    <div class="site-footer__column" appReveal="100">
+      <span class="site-footer__label">LUMOCAST T&amp;C</span>
+      <div class="site-footer__links">
+        <a
+          *ngFor="let link of legalLinks"
+          [routerLink]="link.route"
+          [href]="link.route ? null : link.href"
+          [attr.target]="link.external ? '_blank' : null"
+          [attr.rel]="link.external ? 'noreferrer noopener' : null"
+        >
+          {{ link.label }}
+        </a>
+      </div>
+    </div>
+
+    <div class="site-footer__column" appReveal="160">
+      <span class="site-footer__label">Social</span>
+      <div class="site-footer__links">
+        <a
+          *ngFor="let link of socialLinks"
+          [href]="link.href"
+          target="_blank"
+          rel="noreferrer noopener"
+        >
+          {{ link.label }}
+        </a>
+      </div>
+    </div>
+
+    <div class="site-footer__column" appReveal="220">
+      <span class="site-footer__label">Contact</span>
+      <div class="site-footer__links">
+        <a [href]="'mailto:' + contact.email">{{ contact.email }}</a>
+        <a [href]="'tel:' + contact.phone">Tel: {{ contact.phone }}</a>
+        <p>{{ contact.address }}</p>
+      </div>
+    </div>
+  </div>
+</footer>

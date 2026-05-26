@@ -1,0 +1,106 @@
+<div class="technology-page">
+  <section class="technology-stage">
+    <!-- <div class="technology-stage__shell section-shell">
+      <div
+        class="technology-stage__media visual-motion"
+        appReveal="0"
+        appInteractiveMotion="0.95"
+      > -->
+        <img [src]="heroShowcase" alt="LUMOCAST digital signage product lineup" />
+      <!-- </div>
+    </div> -->
+  </section>
+
+  <section class="technology-intro section-shell">
+    <span class="technology-intro__eyebrow" appReveal="0">Redefining Display</span>
+
+    <div class="technology-intro__content">
+      <h1 appReveal="40">Illuminate Anywhere Anytime</h1>
+
+      <p appReveal="90">
+        Welcome to a world where clarity meets innovation, where every detail
+        matters, and where LUMOCAST Display becomes the canvas for your visual
+        masterpiece.
+      </p>
+    </div>
+  </section>
+
+  <section class="technology-feature-grid section-shell" aria-label="Display technology features">
+    <article
+      *ngFor="let feature of displayFeatures; let i = index"
+      class="technology-card"
+      [appReveal]="80 + i * 70"
+    >
+      <div class="technology-card__copy">
+        <span class="technology-card__title">{{ feature.title }}</span>
+        <p>{{ feature.description }}</p>
+      </div>
+
+      <div
+        class="technology-card__media visual-motion"
+        appInteractiveMotion="0.72"
+      >
+        <img [src]="feature.image" [alt]="feature.alt" />
+      </div>
+    </article>
+  </section>
+
+  <section class="technology-feature-grid technology-feature-grid--utility section-shell" aria-label="Display utility features">
+    <article
+      *ngFor="let feature of utilityFeatures; let i = index"
+      class="technology-card"
+      [appReveal]="80 + i * 70"
+    >
+      <div class="technology-card__copy">
+        <span class="technology-card__title">{{ feature.title }}</span>
+        <p>{{ feature.description }}</p>
+      </div>
+
+      <div
+        class="technology-card__media visual-motion"
+        appInteractiveMotion="0.72"
+      >
+        <img [src]="feature.image" [alt]="feature.alt" />
+      </div>
+    </article>
+  </section>
+
+  <section class="technology-iq section-shell">
+    <div class="technology-iq__lead">
+      <div class="technology-iq__heading" appReveal="0">
+        <span class="technology-iq__eyebrow">IQ World</span>
+        <h2>Seamless User Experience</h2>
+      </div>
+
+      <p class="technology-iq__lead-copy" appReveal="80">
+        {{ iqWorldLead }}
+      </p>
+    </div>
+
+    <article
+      *ngFor="let row of iqWorldRows; let i = index"
+      class="technology-iq__row"
+      [class.technology-iq__row--copy-first]="row.copyFirst"
+      [class.technology-iq__row--phone]="row.variant === 'phone'"
+    >
+      <div
+        class="technology-iq__copy"
+        [appReveal]="70 + i * 60"
+      >
+        <span class="technology-iq__label">{{ row.title }}</span>
+        <p>{{ row.description }}</p>
+
+      </div>
+
+      <div
+        class="technology-iq__media visual-motion"
+        [appReveal]="120 + i * 70"
+        appInteractiveMotion="0.78"
+      >
+        <img [src]="row.image" [alt]="row.alt" />
+      </div>
+    </article>
+  </section>
+
+  <app-newsletter-section></app-newsletter-section>
+</div>

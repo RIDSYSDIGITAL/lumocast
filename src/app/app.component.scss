@@ -1,0 +1,13 @@
+:host {
+  display: block;
+}
+
+.app-shell__content {
+  position: relative;
+  overflow: clip;
+  min-height: 100vh;
+}
+
+.app-shell__content--mirror {
+  overflow: visible;
+}
