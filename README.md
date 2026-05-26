@@ -1,27 +1,73 @@
 # Cansignage
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+This project is an Angular 18 application managed with Angular CLI 18.
+
+## Requirements
+
+- Node.js `^18.19.1 || ^20.11.1 || ^22.0.0`
+- npm `10.x` or newer is recommended
+
+Node 20 is fully supported. The workspace has been aligned to Angular `18.2.x`, TypeScript `5.4.5`, and `zone.js` `0.14.10`.
+
+## Install
+
+Run:
+
+```bash
+npm install
+```
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run:
 
-## Code scaffolding
+```bash
+npm start
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Then open `http://localhost:4200/`.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run:
 
-## Running unit tests
+```bash
+npm run build
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Build output is written to `dist/cansignage/`.
 
-## Running end-to-end tests
+## Watch mode
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Run:
 
-## Further help
+```bash
+npm run watch
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Unit tests
+
+Run:
+
+```bash
+npm test
+```
+
+Unit tests run with Karma.
+
+## Versions
+
+- `@angular/core`: `18.2.14`
+- `@angular/cli`: `18.2.21`
+- `@angular-devkit/build-angular`: `18.2.21`
+- `@angular/compiler-cli`: `18.2.14`
+- `typescript`: `5.4.5`
+- `zone.js`: `0.14.10`
+
+## Help
+
+For Angular CLI help, run:
+
+```bash
+npm run ng -- help
+```
