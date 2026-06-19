@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css");
+@import "./styles/animation.css";
+@import "./styles/site.css";
+@import "./styles/policy-pages.css";
+
+app-root,
+app-home,
+app-warranty,
+app-iq-world-tc,
+app-technical-requirement {
+  display: block;
+  width: 100%;
+}

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 170" role="img" aria-labelledby="title desc">
+  <title id="title">Lumocast Digital Signage Private Limited</title>
+  <desc id="desc">Lumocast wordmark with a multicolor ribbon accent and subtitle.</desc>
+  <defs>
+    <linearGradient id="ribbonA" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6f2cff" />
+      <stop offset="52%" stop-color="#ff5b7d" />
+      <stop offset="100%" stop-color="#ffb347" />
+    </linearGradient>
+    <linearGradient id="ribbonB" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ff9d2e" />
+      <stop offset="50%" stop-color="#ff5d74" />
+      <stop offset="100%" stop-color="#7f56ff" />
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(12 18)">
+    <path
+      d="M26 48C26 30 40 18 58 18h36v18H60c-9 0-16 7-16 16v14c0 4 1 8 4 11l18 18v39H48V103L30 85c-3-3-4-7-4-11V48Z"
+      fill="url(#ribbonA)"
+    />
+    <path
+      d="M0 70c0-17 13-30 30-30h12v18H32c-8 0-14 6-14 14v8c0 4 1 7 4 10l20 20v24H24v-16L9 103C3 97 0 89 0 80V70Z"
+      fill="url(#ribbonB)"
+      opacity="0.95"
+    />
+  </g>
+
+  <text
+    x="112"
+    y="78"
+    fill="#ffffff"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="96"
+    font-weight="800"
+    letter-spacing="-4"
+  >
+    LUMOCAST
+  </text>
+  <text
+    x="114"
+    y="132"
+    fill="#b6b6b6"
+    font-family="Arial, Helvetica, sans-serif"
+    font-size="38"
+    font-weight="500"
+    letter-spacing="1.8"
+  >
+    DIGITAL SIGNAGE PRIVATE LIMITED
+  </text>
+</svg>

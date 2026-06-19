@@ -1,0 +1,1727 @@
+:root {
+  color-scheme: light;
+  --ink: #090b0f;
+  --soft-ink: #3d4654;
+  --muted: #6d7480;
+  --paper: #ffffff;
+  --wash: #f5f8fc;
+  --line: rgba(9, 11, 15, 0.1);
+  --blue: #168cff;
+  --cyan: #11c6e8;
+  --pink: #d83f8d;
+  --orange: #ff8a1f;
+  --radius: 8px;
+  --shadow: 0 22px 64px rgba(25, 36, 54, 0.12);
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 4px;
+}
+
+.page,
+.warranty {
+  width: min(1280px, calc(100% - 48px)) !important;
+  max-width: none !important;
+  margin: 0 auto;
+  padding: 28px 0 88px !important;
+}
+
+.page__back,
+.warranty__back {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px !important;
+  padding: 0 13px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.82);
+  color: var(--soft-ink) !important;
+  box-shadow: 0 12px 34px rgba(25, 36, 54, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.page__back:hover,
+.warranty__back:hover {
+  color: var(--ink) !important;
+  transform: translateY(-1px);
+}
+
+.page__nav,
+.warranty__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px !important;
+  margin-bottom: 42px !important;
+  padding: 8px !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 16px 48px rgba(25, 36, 54, 0.09);
+  backdrop-filter: blur(20px);
+}
+
+.page__nav a,
+.warranty__nav a {
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 14px;
+  border-radius: var(--radius);
+  color: var(--soft-ink) !important;
+}
+
+.page__nav a:hover,
+.page__nav a.active,
+.warranty__nav a:hover,
+.warranty__nav a.active {
+  background: var(--ink);
+  color: #fff !important;
+}
+
+.page .hero,
+.warranty__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 400px) !important;
+  gap: 24px !important;
+  align-items: stretch !important;
+  margin-bottom: 28px !important;
+}
+
+.page .hero > div:first-child,
+.warranty__hero > div:first-child {
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(28px, 4vw, 54px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.72)),
+    linear-gradient(118deg, rgba(17, 198, 232, 0.12), transparent 46%);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+.page .hero__label,
+.warranty__hero-label {
+  width: fit-content;
+  min-height: 32px;
+  display: inline-flex !important;
+  align-items: center;
+  margin-bottom: 18px !important;
+  padding: 0 11px;
+  border: 1px solid rgba(9, 11, 15, 0.1);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--soft-ink) !important;
+}
+
+.page .hero h1,
+.warranty__hero h1 {
+  max-width: 12ch;
+  color: var(--ink);
+  font-size: clamp(2.8rem, 6vw, 5.7rem) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  line-height: 0.93 !important;
+}
+
+.page .hero p,
+.warranty__hero p {
+  color: var(--soft-ink) !important;
+  font-size: clamp(1rem, 1.2vw, 1.12rem) !important;
+  line-height: 1.72 !important;
+}
+
+.page .summary,
+.warranty__summary {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  gap: 18px;
+  align-content: end !important;
+  min-height: 360px;
+  border: 1px solid rgba(9, 11, 15, 0.1) !important;
+  border-radius: var(--radius) !important;
+  background:
+    linear-gradient(135deg, rgba(22, 140, 255, 0.14), rgba(255, 255, 255, 0.92) 42%, rgba(216, 63, 141, 0.12)),
+    var(--paper) !important;
+  box-shadow: var(--shadow);
+}
+
+.page .summary::before,
+.warranty__summary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(9, 11, 15, 0.045) 1px, transparent 1px),
+    linear-gradient(rgba(9, 11, 15, 0.045) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), transparent 74%);
+  pointer-events: none;
+}
+
+.page .summary__item,
+.warranty__summary-item {
+  display: grid;
+  gap: 4px;
+}
+
+.page .summary__item + .summary__item,
+.warranty__summary-item + .warranty__summary-item {
+  padding-top: 18px;
+  border-top: 1px solid rgba(9, 11, 15, 0.07);
+}
+
+.page .summary__badge,
+.warranty__badge {
+  width: fit-content;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 13px;
+  border: 1px solid rgba(9, 11, 15, 0.12);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  box-shadow: 0 12px 28px rgba(9, 11, 15, 0.14);
+}
+
+.page .summary__badge::before,
+.warranty__badge::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--cyan);
+  box-shadow: 0 0 0 4px rgba(17, 198, 232, 0.18);
+}
+
+.page .summary__item,
+.warranty__summary-item,
+.page .summary__badge,
+.warranty__badge {
+  position: relative;
+}
+
+.page .summary__item strong,
+.warranty__summary-item strong {
+  color: var(--muted) !important;
+}
+
+.page .summary__item span,
+.warranty__summary-item span {
+  color: var(--ink) !important;
+}
+
+.page .summary__badge,
+.warranty__badge {
+  border-radius: var(--radius) !important;
+  background:
+    linear-gradient(135deg, rgba(17, 198, 232, 0.18), transparent 44%),
+    var(--ink) !important;
+  color: #fff;
+}
+
+.page .body,
+.warranty__body {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr) !important;
+  gap: 24px !important;
+  align-items: start;
+}
+
+.page .sidebar,
+.warranty__sidebar {
+  position: sticky;
+  top: 24px !important;
+  align-self: start;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius) !important;
+  background:
+    linear-gradient(135deg, rgba(17, 198, 232, 0.14), transparent 50%),
+    linear-gradient(180deg, #11151c 0%, #07080b 100%) !important;
+  box-shadow: 0 22px 64px rgba(9, 11, 15, 0.2);
+}
+
+.page .sidebar h3,
+.warranty__sidebar h3 {
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.52);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.page .sidebar ul,
+.warranty__sidebar ul {
+  display: grid;
+  gap: 14px;
+  list-style: none;
+}
+
+.page .sidebar li,
+.warranty__sidebar li {
+  position: relative;
+  padding-left: 18px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.page .sidebar li::before,
+.warranty__sidebar li::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 8px;
+  height: 8px;
+}
+
+.page .sidebar li::before,
+.warranty__sidebar li::before {
+  border-radius: 2px !important;
+  background: var(--cyan) !important;
+}
+
+.page .content,
+.warranty__content {
+  display: grid;
+  gap: 14px !important;
+}
+
+.page .card,
+.warranty__card {
+  padding: 32px;
+  border: 1px solid var(--line) !important;
+  border-radius: var(--radius) !important;
+  background: rgba(255, 255, 255, 0.84) !important;
+  box-shadow: 0 14px 40px rgba(25, 36, 54, 0.08) !important;
+  backdrop-filter: blur(16px);
+  transition: transform 220ms var(--ease), box-shadow 220ms var(--ease), border-color 220ms var(--ease) !important;
+}
+
+.page .card:hover,
+.warranty__card:hover {
+  border-color: rgba(22, 140, 255, 0.22) !important;
+  box-shadow: 0 24px 64px rgba(25, 36, 54, 0.13) !important;
+  transform: translateY(-2px);
+}
+
+.page .card h2,
+.warranty__card h2 {
+  margin-bottom: 14px;
+  color: var(--ink);
+  font-size: clamp(1.25rem, 1.8vw, 1.7rem) !important;
+  letter-spacing: 0 !important;
+}
+
+.page .card p,
+.page .card li,
+.warranty__card p,
+.warranty__card li {
+  color: var(--soft-ink) !important;
+}
+
+.page .card ul,
+.warranty__card ul {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+  list-style: none;
+}
+
+.page .card li,
+.warranty__card li {
+  position: relative;
+  padding-left: 20px;
+  line-height: 1.75;
+}
+
+.page .card li::before,
+.warranty__card li::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 7px !important;
+  height: 7px !important;
+  border-radius: 2px !important;
+  background: linear-gradient(135deg, var(--blue), var(--cyan)) !important;
+}
+
+@media (max-width: 1024px) {
+  .page .hero,
+  .warranty__hero,
+  .page .body,
+  .warranty__body {
+    grid-template-columns: 1fr !important;
+  }
+
+  .page .sidebar,
+  .warranty__sidebar {
+    position: static !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .page,
+  .warranty {
+    width: min(100% - 28px, 1280px) !important;
+    padding: 18px 0 56px !important;
+  }
+
+  .page__nav,
+  .warranty__nav {
+    display: grid !important;
+  }
+
+  .page__nav a,
+  .warranty__nav a {
+    justify-content: center;
+  }
+
+  .page .hero > div:first-child,
+  .warranty__hero > div:first-child,
+  .page .summary,
+  .warranty__summary {
+    min-height: auto;
+  }
+
+  .page .hero > div:first-child,
+  .warranty__hero > div:first-child,
+  .page .summary,
+  .warranty__summary,
+  .page .card,
+  .warranty__card,
+  .page .sidebar,
+  .warranty__sidebar {
+    padding: 20px !important;
+  }
+
+  .page .hero h1,
+  .warranty__hero h1 {
+    font-size: clamp(2.2rem, 13vw, 3.4rem) !important;
+  }
+}
+
+/* Premium warranty reference layout */
+.warranty-page {
+  background: #f7f7f7 !important;
+  background-image: none !important;
+  color: #1d1d1f !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif !important;
+}
+
+.warranty-page::before {
+  display: none;
+}
+
+.warranty-page .warranty {
+  width: min(1216px, calc(100% - 64px)) !important;
+  padding: 44px 0 88px !important;
+}
+
+.warranty-page .warranty__back {
+  min-height: auto;
+  margin-bottom: 28px !important;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #6e6e73 !important;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.warranty-page .warranty__back:hover {
+  color: #1d1d1f !important;
+  transform: none;
+}
+
+.warranty-page .warranty__nav {
+  margin-bottom: 34px !important;
+  padding: 0 0 24px !important;
+  border: 0 !important;
+  border-bottom: 1px solid #e6e6eb !important;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.warranty-page .warranty__nav a {
+  min-height: auto;
+  padding: 0;
+  border-radius: 0;
+  color: #6e6e73 !important;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.warranty-page .warranty__nav a + a {
+  margin-left: 20px;
+}
+
+.warranty-page .warranty__nav a:hover,
+.warranty-page .warranty__nav a.active {
+  background: transparent;
+  color: #1d1d1f !important;
+}
+
+.warranty-page .warranty__hero {
+  grid-template-columns: minmax(0, 1fr) minmax(330px, 360px) !important;
+  gap: 32px !important;
+  align-items: start !important;
+  margin-bottom: 48px !important;
+}
+
+.warranty-page .warranty__hero > div:first-child {
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.warranty-page .warranty__hero-label {
+  min-height: auto;
+  margin-bottom: 14px !important;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #6e6e73 !important;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.warranty-page .warranty__hero h1 {
+  max-width: 11ch;
+  margin-bottom: 18px;
+  color: #1d1d1f;
+  font-size: clamp(2.65rem, 5vw, 3.85rem) !important;
+  font-weight: 760 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.04 !important;
+}
+
+.warranty-page .warranty__hero p {
+  max-width: 62ch;
+  color: #6e6e73 !important;
+  font-size: 1.05rem !important;
+  line-height: 1.72 !important;
+}
+
+.warranty-page .warranty__summary {
+  min-height: auto;
+  align-content: start !important;
+  gap: 18px;
+  padding: 28px;
+  border: 1px solid #e8ddd0 !important;
+  border-radius: 22px !important;
+  background: linear-gradient(135deg, #fdf6ee 0%, #faf0e6 100%) !important;
+  box-shadow: none;
+}
+
+.warranty-page .warranty__summary::before {
+  display: none;
+}
+
+.warranty-page .warranty__summary-item {
+  gap: 4px;
+}
+
+.warranty-page .warranty__summary-item + .warranty__summary-item {
+  padding-top: 18px;
+  border-top: 1px solid rgba(29, 29, 31, 0.06);
+}
+
+.warranty-page .warranty__summary-item strong {
+  color: #8a7e6f !important;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.warranty-page .warranty__summary-item span {
+  color: #1d1d1f !important;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.warranty-page .warranty__badge {
+  min-height: 30px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 999px !important;
+  background: #d94a3d !important;
+  box-shadow: none;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.warranty-page .warranty__badge::before {
+  display: none;
+}
+
+.warranty-page .warranty__body {
+  grid-template-columns: 300px minmax(0, 1fr) !important;
+  gap: 32px !important;
+}
+
+.warranty-page .warranty__sidebar {
+  top: 32px !important;
+  padding: 28px;
+  border: 0;
+  border-radius: 22px !important;
+  background: #1d1d1f !important;
+  box-shadow: none;
+}
+
+.warranty-page .warranty__sidebar h3 {
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.warranty-page .warranty__sidebar ul {
+  gap: 14px;
+}
+
+.warranty-page .warranty__sidebar li {
+  padding-left: 18px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.warranty-page .warranty__sidebar li::before {
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50% !important;
+  background: #f5a623 !important;
+}
+
+.warranty-page .warranty__content {
+  gap: 20px !important;
+}
+
+.warranty-page .warranty__card {
+  padding: 32px;
+  border: 1px solid #e8e8ed !important;
+  border-radius: 22px !important;
+  background: #fff !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04) !important;
+  backdrop-filter: none;
+}
+
+.warranty-page .warranty__card:hover {
+  border-color: #e8e8ed !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  transform: none;
+}
+
+.warranty-page .warranty__card h2 {
+  margin-bottom: 14px;
+  color: #1d1d1f;
+  font-size: 1.5rem !important;
+  font-weight: 760;
+  letter-spacing: -0.02em !important;
+  line-height: 1.2;
+}
+
+.warranty-page .warranty__card p,
+.warranty-page .warranty__card li {
+  color: #6e6e73 !important;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.warranty-page .warranty__card ul {
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.warranty-page .warranty__card li::before {
+  top: 10px;
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+  background: #c7c7cc !important;
+}
+
+@media (max-width: 1024px) {
+  .warranty-page .warranty__hero,
+  .warranty-page .warranty__body {
+    grid-template-columns: 1fr !important;
+  }
+
+  .warranty-page .warranty__sidebar {
+    position: static !important;
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .warranty-page .warranty {
+    width: min(100% - 32px, 1216px) !important;
+    padding: 24px 0 56px !important;
+  }
+
+  .warranty-page .warranty__nav {
+    display: flex !important;
+    gap: 12px !important;
+    overflow-x: auto;
+    padding-bottom: 18px !important;
+  }
+
+  .warranty-page .warranty__nav a + a {
+    margin-left: 0;
+  }
+
+  .warranty-page .warranty__hero {
+    gap: 24px !important;
+    margin-bottom: 32px !important;
+  }
+
+  .warranty-page .warranty__hero h1 {
+    font-size: clamp(2rem, 11vw, 2.65rem) !important;
+  }
+
+  .warranty-page .warranty__summary,
+  .warranty-page .warranty__sidebar,
+  .warranty-page .warranty__card {
+    padding: 22px !important;
+    border-radius: 20px !important;
+  }
+}
+
+/* Premium IQ World T&C reference layout */
+.iq-page {
+  background: #f7f7f7 !important;
+  background-image: none !important;
+  color: #1d1d1f !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif !important;
+}
+
+.iq-page::before {
+  display: none;
+}
+
+.iq-page .page {
+  width: min(1216px, calc(100% - 64px)) !important;
+  padding: 44px 0 88px !important;
+}
+
+.iq-page .page__back {
+  min-height: auto;
+  margin-bottom: 28px !important;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #6e6e73 !important;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.iq-page .page__back:hover {
+  color: #1d1d1f !important;
+  transform: none;
+}
+
+.iq-page .page__nav {
+  margin-bottom: 34px !important;
+  padding: 0 0 24px !important;
+  border: 0 !important;
+  border-bottom: 1px solid #e6e6eb !important;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.iq-page .page__nav a {
+  min-height: auto;
+  padding: 0;
+  border-radius: 0;
+  color: #6e6e73 !important;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.iq-page .page__nav a + a {
+  margin-left: 20px;
+}
+
+.iq-page .page__nav a:hover,
+.iq-page .page__nav a.active {
+  background: transparent;
+  color: #1d1d1f !important;
+}
+
+.iq-page .hero {
+  grid-template-columns: minmax(0, 1fr) minmax(330px, 360px) !important;
+  gap: 32px !important;
+  align-items: start !important;
+  margin-bottom: 48px !important;
+}
+
+.iq-page .hero > div:first-child {
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.iq-page .hero__label {
+  min-height: auto;
+  margin-bottom: 14px !important;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #6e6e73 !important;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.iq-page .hero h1 {
+  max-width: 11ch;
+  margin-bottom: 18px;
+  color: #1d1d1f;
+  font-size: clamp(2.65rem, 5vw, 3.85rem) !important;
+  font-weight: 760 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.04 !important;
+}
+
+.iq-page .hero p {
+  max-width: 62ch;
+  color: #6e6e73 !important;
+  font-size: 1.05rem !important;
+  line-height: 1.72 !important;
+}
+
+.iq-page .summary {
+  min-height: auto;
+  align-content: start !important;
+  gap: 18px;
+  padding: 28px;
+  border: 1px solid #e8ddd0 !important;
+  border-radius: 22px !important;
+  background: linear-gradient(135deg, #fdf6ee 0%, #faf0e6 100%) !important;
+  box-shadow: none;
+}
+
+.iq-page .summary::before {
+  display: none;
+}
+
+.iq-page .summary__item {
+  gap: 4px;
+}
+
+.iq-page .summary__item + .summary__item {
+  padding-top: 18px;
+  border-top: 1px solid rgba(29, 29, 31, 0.06);
+}
+
+.iq-page .summary__item strong {
+  color: #8a7e6f !important;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.iq-page .summary__item span {
+  color: #1d1d1f !important;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.iq-page .summary__badge {
+  min-height: 30px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 999px !important;
+  background: #d94a3d !important;
+  box-shadow: none;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.iq-page .summary__badge::before {
+  display: none;
+}
+
+.iq-page .body {
+  grid-template-columns: 300px minmax(0, 1fr) !important;
+  gap: 32px !important;
+}
+
+.iq-page .sidebar {
+  top: 32px !important;
+  padding: 28px;
+  border: 0;
+  border-radius: 22px !important;
+  background: #1d1d1f !important;
+  box-shadow: none;
+}
+
+.iq-page .sidebar h3 {
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.iq-page .sidebar ul {
+  gap: 14px;
+}
+
+.iq-page .sidebar li {
+  padding-left: 18px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.iq-page .sidebar li::before {
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50% !important;
+  background: #f5a623 !important;
+}
+
+.iq-page .content {
+  gap: 20px !important;
+}
+
+.iq-page .card {
+  padding: 32px;
+  border: 1px solid #e8e8ed !important;
+  border-radius: 22px !important;
+  background: #fff !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04) !important;
+  backdrop-filter: none;
+}
+
+.iq-page .card:hover {
+  border-color: #e8e8ed !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  transform: none;
+}
+
+.iq-page .card h2 {
+  margin-bottom: 14px;
+  color: #1d1d1f;
+  font-size: 1.5rem !important;
+  font-weight: 760;
+  letter-spacing: -0.02em !important;
+  line-height: 1.2;
+}
+
+.iq-page .card p,
+.iq-page .card li {
+  color: #6e6e73 !important;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.iq-page .card ul {
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.iq-page .card li::before {
+  top: 10px;
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+  background: #c7c7cc !important;
+}
+
+@media (max-width: 1024px) {
+  .iq-page .hero,
+  .iq-page .body {
+    grid-template-columns: 1fr !important;
+  }
+
+  .iq-page .sidebar {
+    position: static !important;
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .iq-page .page {
+    width: min(100% - 32px, 1216px) !important;
+    padding: 24px 0 56px !important;
+  }
+
+  .iq-page .page__nav {
+    display: flex !important;
+    gap: 12px !important;
+    overflow-x: auto;
+    padding-bottom: 18px !important;
+  }
+
+  .iq-page .page__nav a + a {
+    margin-left: 0;
+  }
+
+  .iq-page .hero {
+    gap: 24px !important;
+    margin-bottom: 32px !important;
+  }
+
+  .iq-page .hero h1 {
+    font-size: clamp(2rem, 11vw, 2.65rem) !important;
+  }
+
+  .iq-page .summary,
+  .iq-page .sidebar,
+  .iq-page .card {
+    padding: 22px !important;
+    border-radius: 20px !important;
+  }
+}
+
+/* Premium Technical Requirement reference layout */
+.technical-page {
+  background: #f7f7f7 !important;
+  background-image: none !important;
+  color: #1d1d1f !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif !important;
+}
+
+.technical-page::before {
+  display: none;
+}
+
+.technical-page .page {
+  width: min(1216px, calc(100% - 64px)) !important;
+  padding: 44px 0 88px !important;
+}
+
+.technical-page .page__back {
+  min-height: auto;
+  margin-bottom: 28px !important;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #6e6e73 !important;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.technical-page .page__back:hover {
+  color: #1d1d1f !important;
+  transform: none;
+}
+
+.technical-page .page__nav {
+  margin-bottom: 34px !important;
+  padding: 0 0 24px !important;
+  border: 0 !important;
+  border-bottom: 1px solid #e6e6eb !important;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.technical-page .page__nav a {
+  min-height: auto;
+  padding: 0;
+  border-radius: 0;
+  color: #6e6e73 !important;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.technical-page .page__nav a + a {
+  margin-left: 20px;
+}
+
+.technical-page .page__nav a:hover,
+.technical-page .page__nav a.active {
+  background: transparent;
+  color: #1d1d1f !important;
+}
+
+.technical-page .hero {
+  grid-template-columns: minmax(0, 1fr) minmax(330px, 360px) !important;
+  gap: 32px !important;
+  align-items: start !important;
+  margin-bottom: 48px !important;
+}
+
+.technical-page .hero > div:first-child {
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+.technical-page .hero__label {
+  min-height: auto;
+  margin-bottom: 14px !important;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #6e6e73 !important;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.technical-page .hero h1 {
+  max-width: 12ch;
+  margin-bottom: 18px;
+  color: #1d1d1f;
+  font-size: clamp(2.65rem, 5vw, 3.85rem) !important;
+  font-weight: 760 !important;
+  letter-spacing: -0.035em !important;
+  line-height: 1.04 !important;
+}
+
+.technical-page .hero p {
+  max-width: 62ch;
+  color: #6e6e73 !important;
+  font-size: 1.05rem !important;
+  line-height: 1.72 !important;
+}
+
+.technical-page .summary {
+  min-height: auto;
+  align-content: start !important;
+  gap: 18px;
+  padding: 28px;
+  border: 1px solid #e8ddd0 !important;
+  border-radius: 22px !important;
+  background: linear-gradient(135deg, #fdf6ee 0%, #faf0e6 100%) !important;
+  box-shadow: none;
+}
+
+.technical-page .summary::before {
+  display: none;
+}
+
+.technical-page .summary__item + .summary__item {
+  padding-top: 18px;
+  border-top: 1px solid rgba(29, 29, 31, 0.06);
+}
+
+.technical-page .summary__item strong {
+  color: #8a7e6f !important;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.technical-page .summary__item span {
+  color: #1d1d1f !important;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.technical-page .summary__badge {
+  min-height: 30px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 999px !important;
+  background: #d94a3d !important;
+  box-shadow: none;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.technical-page .summary__badge::before {
+  display: none;
+}
+
+.technical-page .body {
+  grid-template-columns: 300px minmax(0, 1fr) !important;
+  gap: 32px !important;
+}
+
+.technical-page .sidebar {
+  top: 32px !important;
+  padding: 28px;
+  border: 0;
+  border-radius: 22px !important;
+  background: #1d1d1f !important;
+  box-shadow: none;
+}
+
+.technical-page .sidebar h3 {
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.technical-page .sidebar li {
+  padding-left: 18px;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.technical-page .sidebar li::before {
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50% !important;
+  background: #f5a623 !important;
+}
+
+.technical-page .content {
+  gap: 20px !important;
+}
+
+.technical-page .card {
+  padding: 32px;
+  border: 1px solid #e8e8ed !important;
+  border-radius: 22px !important;
+  background: #fff !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04) !important;
+  backdrop-filter: none;
+}
+
+.technical-page .card:hover {
+  border-color: #e8e8ed !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  transform: none;
+}
+
+.technical-page .card h2 {
+  margin-bottom: 14px;
+  color: #1d1d1f;
+  font-size: 1.5rem !important;
+  font-weight: 760;
+  letter-spacing: -0.02em !important;
+  line-height: 1.2;
+}
+
+.technical-page .card p,
+.technical-page .card li {
+  color: #6e6e73 !important;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.technical-page .card li::before {
+  top: 10px;
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+  background: #c7c7cc !important;
+}
+
+@media (max-width: 1024px) {
+  .technical-page .hero,
+  .technical-page .body {
+    grid-template-columns: 1fr !important;
+  }
+
+  .technical-page .sidebar {
+    position: static !important;
+    order: -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .technical-page .page {
+    width: min(100% - 32px, 1216px) !important;
+    padding: 24px 0 56px !important;
+  }
+
+  .technical-page .page__nav {
+    display: flex !important;
+    gap: 12px !important;
+    overflow-x: auto;
+    padding-bottom: 18px !important;
+  }
+
+  .technical-page .page__nav a + a {
+    margin-left: 0;
+  }
+
+  .technical-page .hero {
+    gap: 24px !important;
+    margin-bottom: 32px !important;
+  }
+
+  .technical-page .hero h1 {
+    font-size: clamp(2rem, 11vw, 2.65rem) !important;
+  }
+
+  .technical-page .summary,
+  .technical-page .sidebar,
+  .technical-page .card {
+    padding: 22px !important;
+    border-radius: 20px !important;
+  }
+}
+
+/* Main-site theme bridge for policy pages with shared header/footer */
+.policy-site {
+  background:
+    linear-gradient(90deg, rgba(9, 9, 9, 0.035) 1px, transparent 1px),
+    linear-gradient(rgba(9, 9, 9, 0.035) 1px, transparent 1px),
+    linear-gradient(118deg, rgba(22, 140, 255, 0.08), transparent 32%),
+    linear-gradient(242deg, rgba(255, 138, 31, 0.08), transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 28%, #f5f7fb 100%) !important;
+  background-size: 44px 44px, 44px 44px, auto, auto, auto !important;
+  color: var(--ink) !important;
+  font-family: LumocastDisplay, Arial, sans-serif !important;
+}
+
+.policy-site::before {
+  display: block;
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.62), transparent 46%);
+}
+
+.policy-site .page,
+.policy-site .warranty {
+  width: var(--shell) !important;
+  padding: 132px 0 96px !important;
+}
+
+.policy-site .page__back,
+.policy-site .warranty__back {
+  min-height: 44px;
+  margin-bottom: 18px !important;
+  padding: 0 13px;
+  border: 1px solid rgba(9, 9, 9, 0.09);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 12px 34px rgba(25, 36, 54, 0.08);
+  color: var(--soft-ink) !important;
+  backdrop-filter: blur(18px);
+}
+
+.policy-site .page__back:hover,
+.policy-site .warranty__back:hover {
+  color: var(--ink) !important;
+  transform: translateY(-1px);
+}
+
+.policy-site .page__nav,
+.policy-site .warranty__nav {
+  gap: 8px !important;
+  margin-bottom: 42px !important;
+  padding: 8px !important;
+  border: 1px solid rgba(9, 9, 9, 0.08) !important;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 16px 48px rgba(25, 36, 54, 0.09);
+  backdrop-filter: blur(20px);
+}
+
+.policy-site .page__nav a,
+.policy-site .warranty__nav a {
+  min-height: 42px;
+  padding: 0 14px;
+  border-radius: 8px;
+  color: var(--soft-ink) !important;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.policy-site .page__nav a + a,
+.policy-site .warranty__nav a + a {
+  margin-left: 0;
+}
+
+.policy-site .page__nav a:hover,
+.policy-site .page__nav a.active,
+.policy-site .warranty__nav a:hover,
+.policy-site .warranty__nav a.active {
+  background: var(--ink);
+  color: #fff !important;
+}
+
+.policy-site .hero,
+.policy-site .warranty__hero {
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 400px) !important;
+  gap: 24px !important;
+  align-items: stretch !important;
+  margin-bottom: 28px !important;
+}
+
+.policy-site .hero > div:first-child,
+.policy-site .warranty__hero > div:first-child {
+  min-height: auto;
+  padding: clamp(26px, 3vw, 40px);
+  border: 1px solid rgba(9, 9, 9, 0.08);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(246, 249, 253, 0.78)),
+    linear-gradient(118deg, rgba(17, 198, 232, 0.12), transparent 46%);
+  box-shadow: 0 18px 48px rgba(28, 38, 54, 0.09);
+  backdrop-filter: blur(18px);
+}
+
+.policy-site .hero__label,
+.policy-site .warranty__hero-label {
+  min-height: 32px;
+  margin-bottom: 18px !important;
+  padding: 0 11px;
+  border: 1px solid rgba(9, 11, 15, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--soft-ink) !important;
+}
+
+.policy-site .hero h1,
+.policy-site .warranty__hero h1 {
+  max-width: 12ch;
+  color: var(--ink);
+  font-size: clamp(2.45rem, 5vw, 4.6rem) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  line-height: 0.98 !important;
+}
+
+.policy-site .hero p,
+.policy-site .warranty__hero p {
+  max-width: 62ch;
+  color: var(--soft-ink) !important;
+  font-size: clamp(1rem, 1.1vw, 1.12rem) !important;
+  line-height: 1.75 !important;
+}
+
+.policy-site .summary,
+.policy-site .warranty__summary {
+  min-height: auto;
+  align-content: start !important;
+  gap: 14px;
+  padding: 22px;
+  border: 1px solid rgba(9, 9, 9, 0.08) !important;
+  border-radius: 8px !important;
+  background:
+    linear-gradient(135deg, rgba(17, 198, 232, 0.14), rgba(255, 255, 255, 0.92) 42%, rgba(216, 63, 141, 0.1)),
+    #fff !important;
+  box-shadow: 0 18px 48px rgba(28, 38, 54, 0.09);
+}
+
+.policy-site .summary::before,
+.policy-site .warranty__summary::before {
+  display: block;
+}
+
+.policy-site .summary__item strong,
+.policy-site .warranty__summary-item strong {
+  color: var(--muted) !important;
+}
+
+.policy-site .summary__badge,
+.policy-site .warranty__badge {
+  min-height: 32px;
+  padding: 0 11px;
+  border-radius: 8px !important;
+  background:
+    linear-gradient(135deg, rgba(17, 198, 232, 0.18), transparent 44%),
+    var(--ink) !important;
+  box-shadow: 0 12px 28px rgba(9, 11, 15, 0.14);
+}
+
+.policy-site .summary__badge::before,
+.policy-site .warranty__badge::before {
+  display: block;
+}
+
+.policy-site .body,
+.policy-site .warranty__body {
+  grid-template-columns: 320px minmax(0, 1fr) !important;
+  gap: 24px !important;
+}
+
+.policy-site .sidebar,
+.policy-site .warranty__sidebar {
+  top: 104px !important;
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px !important;
+  background:
+    linear-gradient(135deg, rgba(17, 198, 232, 0.14), transparent 50%),
+    linear-gradient(180deg, #11151c 0%, #07080b 100%) !important;
+  box-shadow: 0 22px 64px rgba(9, 11, 15, 0.2);
+}
+
+.policy-site .sidebar li::before,
+.policy-site .warranty__sidebar li::before {
+  border-radius: 2px !important;
+  background: var(--orange) !important;
+}
+
+.policy-site .card,
+.policy-site .warranty__card {
+  padding: 32px;
+  border: 1px solid rgba(9, 9, 9, 0.08) !important;
+  border-radius: 8px !important;
+  background: rgba(255, 255, 255, 0.82) !important;
+  box-shadow: 0 14px 40px rgba(25, 36, 54, 0.08) !important;
+  backdrop-filter: blur(16px);
+}
+
+.policy-site .card:hover,
+.policy-site .warranty__card:hover {
+  border-color: rgba(22, 140, 255, 0.22) !important;
+  box-shadow: 0 24px 64px rgba(25, 36, 54, 0.13) !important;
+  transform: translateY(-2px);
+}
+
+.policy-site .card h2,
+.policy-site .warranty__card h2 {
+  color: var(--ink);
+  font-size: clamp(1.25rem, 1.8vw, 1.7rem) !important;
+  font-weight: 700;
+  letter-spacing: 0 !important;
+}
+
+.policy-site .card p,
+.policy-site .card li,
+.policy-site .warranty__card p,
+.policy-site .warranty__card li {
+  color: var(--soft-ink) !important;
+}
+
+.policy-site .card li::before,
+.policy-site .warranty__card li::before {
+  border-radius: 2px !important;
+  background: linear-gradient(135deg, var(--blue), var(--cyan)) !important;
+}
+
+@media (max-width: 1024px) {
+  .policy-site .hero,
+  .policy-site .warranty__hero,
+  .policy-site .body,
+  .policy-site .warranty__body {
+    grid-template-columns: 1fr !important;
+  }
+
+  .policy-site .sidebar,
+  .policy-site .warranty__sidebar {
+    position: static !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .policy-site .page,
+  .policy-site .warranty {
+    width: min(100% - 28px, 1280px) !important;
+    padding: 96px 0 56px !important;
+  }
+
+  .policy-site .page__nav,
+  .policy-site .warranty__nav {
+    display: grid !important;
+  }
+
+  .policy-site .hero > div:first-child,
+  .policy-site .warranty__hero > div:first-child,
+  .policy-site .summary,
+  .policy-site .warranty__summary,
+  .policy-site .card,
+  .policy-site .warranty__card,
+  .policy-site .sidebar,
+  .policy-site .warranty__sidebar {
+    padding: 20px !important;
+  }
+
+  .policy-site .hero h1,
+  .policy-site .warranty__hero h1 {
+    font-size: clamp(2rem, 11vw, 3rem) !important;
+  }
+}
+
+/* Unified policy theme lock: Warranty is the visual source of truth. */
+.policy-site .page,
+.policy-site .warranty {
+  width: var(--shell) !important;
+  padding: 132px 0 96px !important;
+}
+
+.policy-site .hero,
+.policy-site .warranty__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 400px) !important;
+  gap: 24px !important;
+  align-items: stretch !important;
+  min-height: auto !important;
+  margin-bottom: 28px !important;
+  padding-top: 0 !important;
+  overflow: visible !important;
+}
+
+.policy-site .hero > div:first-child,
+.policy-site .warranty__hero > div:first-child,
+.policy-site .summary,
+.policy-site .warranty__summary,
+.policy-site .card,
+.policy-site .warranty__card,
+.policy-site .sidebar,
+.policy-site .warranty__sidebar {
+  border-radius: 8px !important;
+}
+
+.policy-site .hero > div:first-child,
+.policy-site .warranty__hero > div:first-child {
+  min-height: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  padding: clamp(26px, 3vw, 40px) !important;
+  border: 1px solid rgba(9, 9, 9, 0.08) !important;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(246, 249, 253, 0.78)),
+    linear-gradient(118deg, rgba(17, 198, 232, 0.12), transparent 46%) !important;
+  box-shadow: 0 18px 48px rgba(28, 38, 54, 0.09) !important;
+  backdrop-filter: blur(18px);
+}
+
+.policy-site .hero h1,
+.policy-site .warranty__hero h1 {
+  max-width: 12ch !important;
+  font-size: clamp(2.45rem, 5vw, 4.6rem) !important;
+  font-weight: 500 !important;
+  letter-spacing: 0 !important;
+  line-height: 0.98 !important;
+}
+
+.policy-site .hero h1::first-line,
+.policy-site .warranty__hero h1::first-line {
+  color: inherit !important;
+  background: none !important;
+  -webkit-background-clip: border-box !important;
+  background-clip: border-box !important;
+}
+
+.policy-site .summary,
+.policy-site .warranty__summary {
+  min-height: auto !important;
+  align-content: start !important;
+  gap: 14px !important;
+  padding: 22px !important;
+  border: 1px solid rgba(9, 9, 9, 0.08) !important;
+  background:
+    linear-gradient(135deg, rgba(17, 198, 232, 0.14), rgba(255, 255, 255, 0.92) 42%, rgba(216, 63, 141, 0.1)),
+    #fff !important;
+  box-shadow: 0 18px 48px rgba(28, 38, 54, 0.09) !important;
+}
+
+.policy-site .body,
+.policy-site .warranty__body {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr) !important;
+  gap: 24px !important;
+  align-items: start !important;
+}
+
+.policy-site .content,
+.policy-site .warranty__content {
+  display: grid;
+  gap: 14px !important;
+}
+
+.policy-site .sidebar,
+.policy-site .warranty__sidebar {
+  position: sticky;
+  top: 104px !important;
+  align-self: start;
+  padding: 28px !important;
+  background:
+    linear-gradient(135deg, rgba(17, 198, 232, 0.14), transparent 50%),
+    linear-gradient(180deg, #11151c 0%, #07080b 100%) !important;
+  box-shadow: 0 22px 64px rgba(9, 11, 15, 0.2) !important;
+}
+
+.policy-site .card,
+.policy-site .warranty__card {
+  padding: 32px !important;
+  border: 1px solid rgba(9, 9, 9, 0.08) !important;
+  background: rgba(255, 255, 255, 0.82) !important;
+  box-shadow: 0 14px 40px rgba(25, 36, 54, 0.08) !important;
+  backdrop-filter: blur(16px);
+}
+
+@media (max-width: 1024px) {
+  .policy-site .hero,
+  .policy-site .warranty__hero,
+  .policy-site .body,
+  .policy-site .warranty__body {
+    grid-template-columns: 1fr !important;
+  }
+
+  .policy-site .sidebar,
+  .policy-site .warranty__sidebar {
+    position: static !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .policy-site .page,
+  .policy-site .warranty {
+    width: min(100% - 28px, 1280px) !important;
+    padding: 96px 0 56px !important;
+  }
+
+  .policy-site .hero > div:first-child,
+  .policy-site .warranty__hero > div:first-child,
+  .policy-site .summary,
+  .policy-site .warranty__summary,
+  .policy-site .card,
+  .policy-site .warranty__card,
+  .policy-site .sidebar,
+  .policy-site .warranty__sidebar {
+    padding: 20px !important;
+  }
+}
